@@ -65,6 +65,13 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ProductModel productModel = new ProductModel(product);
+
+                //Add database
+                //----------------------------------------------
+                String userID = "haobui";
+                productModel.addToCart(userID, productModel.getID());
+                //----------------------------------------------
+
                 ManageLogCart.writeProductToFile(productModel, getApplicationContext());
                 Toast toast = Toast.makeText(BuyerDetailProductActivity.this, "Thêm sản phẩm thành công", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);

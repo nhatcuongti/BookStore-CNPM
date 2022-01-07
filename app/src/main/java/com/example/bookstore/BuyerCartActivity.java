@@ -20,7 +20,9 @@ import com.example.bookstore.utils.ProcessCurrency;
 
 import java.util.ArrayList;
 
-public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate, ItemAdapter.OnProductListener, View.OnClickListener {
+public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate,
+        ItemAdapter.OnProductListener,
+        View.OnClickListener{
 
     ArrayList<ProductModel> listItems = new ArrayList<>();
     RecyclerView rv;
@@ -37,10 +39,10 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
 
 
         initData();
-        ia = new ItemAdapter(listItems, this, this, this);
-
-        rv.setAdapter(ia);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+//        ia = new ItemAdapter(listItems, this, this, this);
+//
+//        rv.setAdapter(ia);
+//        rv.setLayoutManager(new LinearLayoutManager(this));
 
         TextView v = findViewById(R.id.totalCostProduct);
 
@@ -63,28 +65,46 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
      */
     private void initData() {
         rv = findViewById(R.id.recyclerView);
-        listItems = ManageLogCart.getListProductFromFile(getApplicationContext());
-        if (listItems == null)
-            listItems = new ArrayList<>();
+        ArrayList<ProductModel> productsOnCart = ProductModel.getCart("haobui", new ProductModel.IQuery() {
+            @Override
+            public void onSuccess(ArrayList<ProductModel> productModels) {
+                Log.i("CART", "Cart: " + productModels.toString());
 
-        int totalCostNumber = 0;
-        int totalQuantity = 0;
-        for (ProductModel product : listItems) {
-            totalCostNumber += product.getPriceTmp() * product.getQuantity();
-            totalQuantity += product.getQuantity();
-        }
+//                if (productModels == null || productModels.size() == 0)
+//                    listItems = new ArrayList<>();
 
-        View order_toolbar = findViewById(R.id.order_toolbar);
-        if (listItems.size() == 0)
-            order_toolbar.setVisibility(View.GONE);
-        else
-            order_toolbar.setVisibility(View.VISIBLE);
+                int totalCostNumber = 0;
+                int totalQuantity = 0;
+                for (ProductModel product : productModels) {
+                    Log.i("CART", "Name : " + product.getName());
+                    Log.i("CART", "Price : " + product.getPrice());
+                    Log.i("CART", "Quantity : " + product.getQuantity());
+                    totalCostNumber += product.getPriceTmp() * product.getQuantity();
+                    totalQuantity += product.getQuantity();
+                }
 
-        TextView totalCost = findViewById(R.id.totalCostProduct);
-        totalCost.setText(ProcessCurrency.convertNumberToString(totalCostNumber));
+                View order_toolbar = findViewById(R.id.order_toolbar);
+                if (productModels.size() == 0)
+                    order_toolbar.setVisibility(View.GONE);
+                else
+                    order_toolbar.setVisibility(View.VISIBLE);
 
-        TextView totalProduct = findViewById(R.id.totalNumberProductOfCart);
-        totalProduct.setText(String.valueOf(totalQuantity));
+                TextView totalCost = findViewById(R.id.totalCostProduct);
+                totalCost.setText(ProcessCurrency.convertNumberToString(totalCostNumber));
+
+                TextView totalProduct = findViewById(R.id.totalNumberProductOfCart);
+                totalProduct.setText(String.valueOf(totalQuantity));
+
+                ia = new ItemAdapter(productModels, BuyerCartActivity.this, BuyerCartActivity.this, BuyerCartActivity.this);
+
+                rv.setAdapter(ia);
+                rv.setLayoutManager(new LinearLayoutManager(BuyerCartActivity.this));
+            }
+        });
+//        Log.i("CART", "" + productsOnCart);
+//        Log.i("CART", "Length" + productsOnCart.size());
+//        listItems = ManageLogCart.getListProductFromFile(getApplicationContext());
+
     }
 
     @Override
@@ -127,4 +147,5 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
         System.out.println("Hello");
         this.startActivity(intent);
     }
+
 }

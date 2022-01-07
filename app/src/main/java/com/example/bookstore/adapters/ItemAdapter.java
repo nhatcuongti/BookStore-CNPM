@@ -41,6 +41,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
 
         int S = 0;
         System.out.println(itemLists);
+
+
         for (ProductModel product : itemLists)
         {
             Log.d("information", product.getName() + " " + product.getPriceTmp() + " " + product.getQuantity());
@@ -75,7 +77,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.nameBookView.setText(itemLists.get(position).getName().toString());
         holder.priceView.setText(ProcessCurrency.convertNumberToString(itemLists.get(position).getPriceTmp()));
-        holder.imgView.setImageResource(itemLists.get(position).getImg());
+//        holder.imgView.setImageResource(itemLists.get(position).getImg());
+        holder.imgView.setImageResource(R.drawable.nha_gia_kim);
         holder.numberProductView.setText(String.valueOf(itemLists.get(position).getQuantity()));
         final int Fposition = position;
 
@@ -98,7 +101,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
                 }
 
                 itemLists.get(Fposition).setQuantity(numberProduct + 1);
-                ManageLogCart.writeListProductToFile(itemLists, context.getApplicationContext());
+
+//                ManageLogCart.writeListProductToFile(itemLists, context.getApplicationContext());
+                ProductModel.incDecProductOnCart("haobui", itemLists.get(Fposition).getID(), true);
 
                 notifyDataSetChanged();
             }
@@ -120,11 +125,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
                     gia_ca.setText(ProcessCurrency.convertNumberToString(hao - ProcessCurrency.convertStringToNumber(holder.priceView.getText().toString())));
                 }
 
-                if (numberProduct - 1 == 0)
+                if (numberProduct - 1 == 0){
+                    ProductModel.incDecProductOnCart("haobui", itemLists.get(Fposition).getID(), false);
                     itemLists.remove(Fposition);
+                }
                 else {
                     holder.numberProductView.setText(String.valueOf(numberProduct - 1));
                     itemLists.get(Fposition).setQuantity(numberProduct - 1);
+
+                    ProductModel.incDecProductOnCart("haobui", itemLists.get(Fposition).getID(), false);
                 }
 
                 if (itemLists.size() == 0){
@@ -137,7 +146,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
                         order_toolbar.setVisibility(View.GONE);
                     }
                 }
-                ManageLogCart.writeListProductToFile(itemLists, context.getApplicationContext());
+//                ManageLogCart.writeListProductToFile(itemLists, context.getApplicationContext());
+
 
                 Log.i("adapter", "Button Decrease of " + Fposition);
                 notifyDataSetChanged();

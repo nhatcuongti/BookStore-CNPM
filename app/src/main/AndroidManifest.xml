@@ -10,28 +10,32 @@
         android:theme="@style/Theme.BookStore" >
 
         <activity
-        android:name=".PostProductActivity"
-        android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+            android:name=".MainBuyerHomepageActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-    <activity android:name=".RegisterActivity">
+        <activity android:name=".BuyerDetailProductActivity">
 
-    </activity>
-    <activity android:name=".MainBuyerHomepageActivity">
+        </activity>
 
-    </activity>
+        <activity android:name=".RegisterActivity">
 
-    <activity android:name=".PaymentActivity">
+        </activity>
+<!--        <activity android:name=".MainBuyerHomepageActivity">-->
 
-    </activity>
+<!--        </activity>-->
 
-    <activity android:name=".BuyerCartActivity">
+        <activity android:name=".PaymentActivity">
 
-    </activity>
+        </activity>
+
+        <activity android:name=".BuyerCartActivity">
+
+        </activity>
 </application>
 
     </manifest>
