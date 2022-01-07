@@ -24,7 +24,7 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
         ItemAdapter.OnProductListener,
         View.OnClickListener{
 
-    ArrayList<ProductModel> listItems = new ArrayList<>();
+    ArrayList<ProductModel> listItems = null;
     RecyclerView rv;
     ItemAdapter ia;
     ImageButton backward = null;
@@ -82,6 +82,7 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
                     totalCostNumber += product.getPriceTmp() * product.getQuantity();
                     totalQuantity += product.getQuantity();
                 }
+                listItems = new ArrayList<>(productModels);
 
                 View order_toolbar = findViewById(R.id.order_toolbar);
                 if (productModels.size() == 0)
