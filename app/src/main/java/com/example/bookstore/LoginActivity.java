@@ -31,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
-
         //cài đặt textview đăng ký
         register = (TextView) findViewById(R.id.dangky);
         username = (EditText)findViewById(R.id.login_username);
