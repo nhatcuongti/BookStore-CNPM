@@ -30,17 +30,19 @@ public class PaymentActivity extends AppCompatActivity implements ItemAdapter.Ad
 
         initData();
         View Payment_toolbar = findViewById(R.id.payment_toolbar_buyer);
-        if (listItems.size() == 0)
+        if (listItems == null || listItems.size() == 0)
             Payment_toolbar.setVisibility(View.GONE);
-        else
+        else{
             Payment_toolbar.setVisibility(View.VISIBLE);
 
-        ia = new ItemAdapter(listItems, this, this, this);
+            ia = new ItemAdapter(listItems, this, this, this);
 
-        rv.setAdapter(ia);
-        CustomLinearLayoutManager linearLayoutManager = new CustomLinearLayoutManager(this);
-        linearLayoutManager.setScrollEnabled(false);
-        rv.setLayoutManager(linearLayoutManager);
+            rv.setAdapter(ia);
+            CustomLinearLayoutManager linearLayoutManager = new CustomLinearLayoutManager(this);
+            linearLayoutManager.setScrollEnabled(false);
+            rv.setLayoutManager(linearLayoutManager);
+        }
+
 
         backward = findViewById(R.id.backward_from_payment_buyer);
         backward.setOnClickListener(new View.OnClickListener() {
