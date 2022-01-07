@@ -53,61 +53,37 @@
                 android:hint="Enter a price"
                 android:inputType="numberDecimal" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/qtyView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20px"
-                    android:layout_marginTop="20px"
-                    android:layout_weight="1"
-                    android:text="Quantity:"
-                    android:textSize="32px" />
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
 
-                <TextView
-                    android:id="@+id/category"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20px"
-                    android:layout_weight="1"
-                    android:text="Category:"
-                    android:textSize="32px" />
-            </LinearLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/qtyInput"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="20px"-->
+<!--                    android:layout_marginTop="20px"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:hint="#"-->
+<!--                    android:inputType="number" />-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/qtyInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20px"
-                    android:layout_marginTop="20px"
-                    android:layout_weight="1"
-                    android:hint="#"
-                    android:inputType="number" />
-
-                <Spinner
-                    android:id="@+id/categorySpinner"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30px"
-                    android:layout_weight="1"
-                    android:hint="#" />
-            </LinearLayout>
+<!--                <Spinner-->
+<!--                    android:id="@+id/categorySpinner"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="30px"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:hint="#" />-->
+<!--            </LinearLayout>-->
 
             <TextView
                 android:id="@+id/Image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="50px"
                 android:text="Image:"
                 android:textSize="32px" />
 
@@ -125,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="50px"
                 android:text="Description:"
                 android:textSize="32px" />
 
@@ -143,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="100px"
                 android:text="ADD PRODUCT"
                 android:textSize="32px" />
 

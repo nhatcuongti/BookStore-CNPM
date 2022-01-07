@@ -10,7 +10,7 @@
         android:theme="@style/Theme.BookStore" >
 
         <activity
-        android:name=".LoginActivity"
+        android:name=".PostProductActivity"
         android:exported="true" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
