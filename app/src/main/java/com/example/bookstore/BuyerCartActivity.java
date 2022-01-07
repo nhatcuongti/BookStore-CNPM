@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -65,7 +67,9 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
      */
     private void initData() {
         rv = findViewById(R.id.recyclerView);
-        ArrayList<ProductModel> productsOnCart = ProductModel.getCart("haobui", new ProductModel.IQuery() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        String userID = sharedPreferences.getString("MY_ID","");
+        ArrayList<ProductModel> productsOnCart = ProductModel.getCart(userID, new ProductModel.IQuery() {
             @Override
             public void onSuccess(ArrayList<ProductModel> productModels) {
                 Log.i("CART", "Cart: " + productModels.toString());
@@ -83,7 +87,7 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
                     totalCostNumber += product.getPriceTmp() * product.getQuantity();
                     totalQuantity += product.getQuantity();
                 }
-                listItems = new ArrayList<>(productModels);
+                listItems = productModels;
 
                 View order_toolbar = findViewById(R.id.order_toolbar);
                 if (productModels.size() == 0)
@@ -146,7 +150,7 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
     public void onClick(View view) {
         Intent intent = new Intent(this, PaymentActivity.class);
         intent.putExtra("listProduct_cart", listItems);
-        System.out.println("Hello");
+        System.out.println(listItems);
         this.startActivity(intent);
     }
 

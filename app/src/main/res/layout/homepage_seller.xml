@@ -35,12 +35,13 @@
         android:id="@+id/button3"
         android:layout_width="176dp"
         android:layout_height="95dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
         android:backgroundTint="@android:color/holo_green_light"
         android:drawableTop="@drawable/ic_favorite"
         android:text="Tổng đơn hàng 200"
-        app:layout_constraintTop_toBottomOf="@+id/homeButton"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeButton" />
 
     <Button
         android:id="@+id/button4"
@@ -48,41 +49,52 @@
         android:layout_height="95dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="24dp"
         android:backgroundTint="@android:color/holo_green_light"
         android:drawableTop="@drawable/ic_favorite"
         android:text="Sản phẩm đang bán 200"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/inforButton" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/addPro"
         android:layout_width="378dp"
         android:layout_height="81dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
         android:backgroundTint="@android:color/holo_green_light"
-        android:text="Product Management"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        tools:layout_editor_absoluteX="16dp" />
+        android:text="Quản lý sản phẩm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="378dp"
         android:layout_height="81dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
         android:backgroundTint="@android:color/holo_green_light"
-        android:text="Revenue"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
-        tools:layout_editor_absoluteX="16dp" />
+        android:text="Doanh thu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPro" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/profile"
         android:layout_width="378dp"
         android:layout_height="81dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
         android:backgroundTint="@android:color/holo_green_light"
-        android:text="My Orders"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
-        tools:layout_editor_absoluteX="17dp" />
+        android:text="Thông tin cá nhân"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

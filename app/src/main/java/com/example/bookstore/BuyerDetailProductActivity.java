@@ -1,6 +1,8 @@
 package com.example.bookstore;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -39,7 +41,7 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
         imageProduct = findViewById(R.id.imageProductatDetail);
         nameProduct = findViewById(R.id.nameProductatDetail);
         priceProduct = findViewById(R.id.priceProductatDetail);
-        quantityProduct = findViewById(R.id.quantityatDetail);
+//        quantityProduct = findViewById(R.id.quantityatDetail);
         descriptionProduct = findViewById(R.id.descriptionProduct);
         backward = findViewById(R.id.backward_from_detailproduct_buyer);
         addToCartBtn = findViewById(R.id.addtocart_detail_buyer);
@@ -51,7 +53,7 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
         imageProduct.setImageResource(product.getImg());
         nameProduct.setText(product.getName());
         priceProduct.setText("Price: " + product.getPrice() +"vnđ");
-        quantityProduct.setText("Quanity: " + Integer.toString(product.getQuantity()));
+//        quantityProduct.setText("Quanity: " + Integer.toString(product.getQuantity()));
         descriptionProduct.setText(product.getDescription());
 
         backward.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +70,9 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
 
                 //Add database
                 //----------------------------------------------
-                String userID = "haobui";
+                SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+                String userID = sharedPreferences.getString("MY_ID","");
+//                String userID = "haobui";
                 productModel.addToCart(userID, productModel.getID());
                 //----------------------------------------------
 

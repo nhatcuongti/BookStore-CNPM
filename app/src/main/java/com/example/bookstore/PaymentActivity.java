@@ -1,6 +1,8 @@
 package com.example.bookstore;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,11 +22,18 @@ import com.example.bookstore.adapters.ItemAdapter;
 import com.example.bookstore.models.OrderModel;
 import com.example.bookstore.models.ProductModel;
 import com.example.bookstore.utils.CustomLinearLayoutManager;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firestore.v1.StructuredQuery;
+import com.google.firestore.v1.WriteResult;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PaymentActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate, ItemAdapter.OnProductListener, View.OnClickListener {
 
@@ -31,6 +42,8 @@ public class PaymentActivity extends AppCompatActivity implements ItemAdapter.Ad
     ItemAdapter ia;
     ImageButton backward = null;
     Button purchaseBtn;
+    private static FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,20 +123,45 @@ public class PaymentActivity extends AppCompatActivity implements ItemAdapter.Ad
         //        }
 
         EditText address = findViewById(R.id.vitri);
-        String buyer = "haobui";
         EditText phoneNumber = findViewById(R.id.phoneNumber);
         TextView price = findViewById(R.id.hao);
 
-        OrderModel orderModel = new OrderModel(
-                address.getText().toString(),
-                buyer,
-                phoneNumber.getText().toString(),
-                price.getText().toString(),
-                "50000");
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        String userID = sharedPreferences.getString("MY_ID", "");
+        String buyer = userID;
+        if (address.getText().toString().equals("") || phoneNumber.getText().toString().equals("")) {
+            Toast.makeText(PaymentActivity.this, "Bạn cần phải điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+        } else {
+            OrderModel orderModel = new OrderModel(
+                    address.getText().toString(),
+                    buyer,
+                    phoneNumber.getText().toString(),
+                    price.getText().toString(),
+                    "50000");
 
-        orderModel.addOrderToDatabase();
+            orderModel.addOrderToDatabase();
+            for (int i = listItems.size() - 1; i >= 0; i--) {
+                listItems.remove(i);
+            }
+            ArrayList<String> list = new ArrayList<>();
+            DocumentReference user = db.collection("users").document(userID);
+            user.update("cart", list)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+//                        Log.d(TAG, );
+                            System.out.println("DocumentSnapshot successfully updated!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error updating document", e);
+                        }
+                    });
 
-        Intent intent = new Intent(PaymentActivity.this, MainBuyerHomepageActivity.class);
-        PaymentActivity.this.startActivity(intent);
+            Intent intent = new Intent(PaymentActivity.this, MainBuyerHomepageActivity.class);
+            PaymentActivity.this.startActivity(intent);
+        }
     }
 }

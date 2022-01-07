@@ -3,6 +3,7 @@ package com.example.bookstore.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,7 +80,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
         holder.priceView.setText(ProcessCurrency.convertNumberToString(itemLists.get(position).getPriceTmp()));
         Log.i("Image", "" + itemLists.get(position).getImg());
 
-        holder.imgView.setImageResource(itemLists.get(position).getImg());
+        holder.imgView.setImageResource(R.drawable.nha_gia_kim);
 
 //        holder.imgView.setImageResource(R.drawable.nha_gia_kim);
         holder.numberProductView.setText(String.valueOf(itemLists.get(position).getQuantity()));
@@ -115,6 +116,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
         holder.btnDecrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences sharedPreferences = context.getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+                String userID = sharedPreferences.getString("MY_ID","");
                 int numberProduct = Integer.valueOf(holder.numberProductView.getText().toString()).intValue();
                 updateInterface.UpdateTotalCostAndProduct(false, ProcessCurrency.convertStringToNumber(holder.priceView.getText().toString()));
 
@@ -129,14 +132,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
                 }
 
                 if (numberProduct - 1 == 0){
-                    ProductModel.incDecProductOnCart("haobui", itemLists.get(Fposition).getID(), false);
+                    ProductModel.incDecProductOnCart(userID, itemLists.get(Fposition).getID(), false);
                     itemLists.remove(Fposition);
                 }
                 else {
                     holder.numberProductView.setText(String.valueOf(numberProduct - 1));
                     itemLists.get(Fposition).setQuantity(numberProduct - 1);
 
-                    ProductModel.incDecProductOnCart("haobui", itemLists.get(Fposition).getID(), false);
+                    ProductModel.incDecProductOnCart(userID, itemLists.get(Fposition).getID(), false);
                 }
 
                 if (itemLists.size() == 0){

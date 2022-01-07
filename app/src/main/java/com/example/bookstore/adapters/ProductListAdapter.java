@@ -46,7 +46,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ProductModel data = fillteredProductList.get(position);
-        holder.imageProduct.setImageResource(R.mipmap.img);
+        holder.imageProduct.setImageResource(data.getImg());
         holder.nameProduct.setText(data.getName());
         holder.price.setText(ProcessCurrency.convertNumberToString(Integer.parseInt(data.getPrice())) + " vnđ");
     }

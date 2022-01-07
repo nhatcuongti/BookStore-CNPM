@@ -1,6 +1,8 @@
 package com.example.bookstore;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +34,7 @@ public class PostProductActivity extends AppCompatActivity {
     private static EditText productNameET, priceET, descriptionET;
     private static String productName, price, description;
     private static Button addProduct;
+    private String userID;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +44,12 @@ public class PostProductActivity extends AppCompatActivity {
         priceET = (EditText) findViewById(R.id.priceInput);
         descriptionET = (EditText) findViewById(R.id.descField);
         addProduct = (Button) findViewById(R.id.addProductBtn);
-
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        userID = sharedPreferences.getString("MY_ID","");
         addProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 productName = productNameET.getText().toString();
                 price = priceET.getText().toString();
                 description = descriptionET.getText().toString();
@@ -59,7 +64,7 @@ public class PostProductActivity extends AppCompatActivity {
                     Map<String, Object> newProduct = new HashMap<String, Object>();
                     newProduct.put("name", productName);
                     newProduct.put("price", price);
-                    newProduct.put("owner", "Dat Truong");
+                    newProduct.put("owner", userID);
                     newProduct.put("img", "String");
                     newProduct.put("description", description);
                     db.collection("products")
@@ -67,9 +72,12 @@ public class PostProductActivity extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
-                                    Toast.makeText(PostProductActivity.this, "Đăng sản phẩm thành công", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Đăng sản phẩm thành công", Toast.LENGTH_LONG).show();
                                     Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                    Intent intent = new Intent(getApplicationContext(), MainSellerActivity.class);
+                                    startActivity(intent);
                                 }
+
                             })
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -78,6 +86,7 @@ public class PostProductActivity extends AppCompatActivity {
                                     Log.w(TAG, "Error adding document", e);
                                 }
                             });
+
                 }
             }
         });

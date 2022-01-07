@@ -57,6 +57,7 @@ public class ProductModel implements Serializable {
         quantity = 1;
         description = productModel.description;
         Img = productModel.Img;
+        this.id = productModel.id;
     }
 
     public ProductModel(String name, String price, int quantity, String description) {
@@ -68,6 +69,16 @@ public class ProductModel implements Serializable {
     }
 
     public ProductModel(String owner, int img, String price, String name, String description) {
+        this.owner = owner;
+        this.Img = img;
+        this.price = price;
+        this.priceTmp = Integer.valueOf(price);
+        this.name = name;
+        this.description = description;
+    }
+
+    public ProductModel(String id ,String owner, int img, String price, String name, String description) {
+        this.id = id;
         this.owner = owner;
         this.Img = img;
         this.price = price;
@@ -198,7 +209,7 @@ public class ProductModel implements Serializable {
 
                                 String owner = (String) document.get("owner");
 
-                                long img = (long) document.get("img");
+                                int img = (int) R.drawable.nha_gia_kim;
                                 String price = (String) document.get("price");
                                 String name = (String) document.get("name");
                                 String description = (String) document.get("description");

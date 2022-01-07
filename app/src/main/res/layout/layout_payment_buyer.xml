@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_baseline_phone_24"
-                    android:text="Phone Number"
+                    android:text="Số điện thoại "
                     android:textColor="@color/black"
                     android:textSize="20dp"/>
 

@@ -9,19 +9,27 @@
         <entry key="..\:/BookStore-CNPM/app/src/main/res/drawable/ic_shopingcart.xml" value="0.12604166666666666" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/drawable/outline_search_24.xml" value="0.109009009009009" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/activity_buyer_cart.xml" value="0.19155555555555556" />
-        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/add_product_seller.xml" value="0.19155555555555556" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/add_product_seller.xml" value="0.25" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/bottombar_buyer_layout.xml" value="0.2" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/content_main.xml" value="0.10989583333333333" />
-        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/homepage_admin.xml" value="0.33" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/fragment_homepage_admin.xml" value="0.25" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/homepage_admin.xml" value="0.18" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/homepage_buyer.xml" value="0.1" />
-        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/homepage_seller.xml" value="0.1272644927536232" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/homepage_seller.xml" value="0.22" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/information.xml" value="0.25" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/layout_buyer_cart.xml" value="0.22" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/layout_payment_buyer.xml" value="0.33" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/layout_product_management.xml" value="0.19414414414414413" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/layout_products_cart.xml" value="0.19414414414414413" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/layout_report.xml" value="0.19414414414414413" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/login_screen.xml" value="0.22" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/payment_screen.xml" value="0.19155555555555556" />
-        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/product_detail_buyer.xml" value="0.19155555555555556" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/product_detail_buyer.xml" value="0.33" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/product_management_seller.xml" value="0.25" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/product_onlist_layout.xml" value="0.19414414414414413" />
-        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/register_screen.xml" value="0.15" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/register_screen.xml" value="0.25" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/topbar_buyer_layout.xml" value="0.3112094395280236" />
-        <entry key="..\:/BookStore-CNPM/app/src/main/res/menu/menu_bottombar_buyer.xml" value="0.12" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/menu/menu_bottombar_buyer.xml" value="0.33" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/menu/menu_topbar_buyer.xml" value="0.10989583333333333" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.20810810810810812" />
         <entry key="..\:/Users/Admin/StudioProjects/BookStore-CNPM-new/app/src/main/res/layout/activity_buyer_cart.xml" value="0.25" />

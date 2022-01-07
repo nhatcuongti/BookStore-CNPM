@@ -1,6 +1,8 @@
 package com.example.bookstore;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -31,7 +33,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class infoActivity extends AppCompatActivity {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
     FragmentManager fragmentManager = getSupportFragmentManager();
-    String username = "hieule";
+    String username;
     String password = "";
     TextView hello, address, role;
     EditText input_password, repassword;
@@ -40,11 +42,16 @@ public class infoActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.information);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        username = sharedPreferences.getString("MY_ID","");
+
         changePW = (Button)findViewById(R.id.info_btnChangePassword);
         logout = (Button) findViewById(R.id.info_logout);
         input_password = (EditText)findViewById(R.id.info_password);
         repassword = (EditText)findViewById(R.id.info_repassword);
         initData();
+
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

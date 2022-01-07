@@ -27,15 +27,24 @@
         <activity android:name=".RegisterActivity">
 
         </activity>
-<!--        <activity android:name=".MainBuyerHomepageActivity">-->
+        <activity android:name=".MainBuyerHomepageActivity">
 
-<!--        </activity>-->
+        </activity>
 
         <activity android:name=".PaymentActivity">
 
         </activity>
 
         <activity android:name=".BuyerCartActivity">
+
+        </activity>
+        <activity android:name=".MainSellerActivity">
+
+        </activity>
+        <activity android:name=".PostProductActivity">
+
+        </activity>
+        <activity android:name=".infoActivity">
 
         </activity>
 </application>
