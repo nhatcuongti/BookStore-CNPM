@@ -84,7 +84,7 @@
                     android:textSize="20dp"/>
 
                 <EditText
-                    android:id="@+id/number"
+                    android:id="@+id/phoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/phone"
@@ -198,6 +198,7 @@
                         android:textSize="20dp"/>
 
                     <Button
+                        android:id="@+id/purchaseBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Đặt hàng"/>

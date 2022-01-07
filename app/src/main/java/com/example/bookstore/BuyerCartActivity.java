@@ -79,6 +79,7 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
                     Log.i("CART", "Name : " + product.getName());
                     Log.i("CART", "Price : " + product.getPrice());
                     Log.i("CART", "Quantity : " + product.getQuantity());
+                    Log.i("CART", "Image : " + product.getImg());
                     totalCostNumber += product.getPriceTmp() * product.getQuantity();
                     totalQuantity += product.getQuantity();
                 }

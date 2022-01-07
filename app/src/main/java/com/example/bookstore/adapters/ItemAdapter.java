@@ -77,8 +77,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.nameBookView.setText(itemLists.get(position).getName().toString());
         holder.priceView.setText(ProcessCurrency.convertNumberToString(itemLists.get(position).getPriceTmp()));
-//        holder.imgView.setImageResource(itemLists.get(position).getImg());
-        holder.imgView.setImageResource(R.drawable.nha_gia_kim);
+        Log.i("Image", "" + itemLists.get(position).getImg());
+
+        holder.imgView.setImageResource(itemLists.get(position).getImg());
+
+//        holder.imgView.setImageResource(R.drawable.nha_gia_kim);
         holder.numberProductView.setText(String.valueOf(itemLists.get(position).getQuantity()));
         final int Fposition = position;
 
