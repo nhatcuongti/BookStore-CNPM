@@ -9,20 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookStore" >
 
-        <activity
-<<<<<<< HEAD
-        android:name=".infoActivity"
-        android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
 
-    <activity android:name=".LoginActivity">
-=======
+
+        <activity
             android:name=".MainBuyerHomepageActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,7 +21,6 @@
         </activity>
 
         <activity android:name=".BuyerDetailProductActivity">
->>>>>>> 070e0a5128278179b8e6a5af353467998db6cd2d
 
         </activity>
 
