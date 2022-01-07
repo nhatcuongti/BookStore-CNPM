@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
                 android:layout_marginTop="20px"
-                android:text="Name:"
+                android:text="Tên sản phẩm:"
                 android:textSize="32px" />
 
             <EditText
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
                 android:layout_marginTop="20px"
-                android:hint="Enter a name" />
+                android:hint="Hãy nhập tên sản phẩm" />
 
             <TextView
                 android:id="@+id/price"
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
                 android:layout_marginTop="20px"
-                android:text="Price:"
+                android:text="Giá:"
                 android:textSize="32px" />
 
             <EditText
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
                 android:layout_marginTop="20px"
-                android:hint="Enter a price"
+                android:hint="Hãy nhập giá"
                 android:inputType="numberDecimal" />
 
 
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20px"
                 android:layout_marginTop="20px"
-                android:text="UPLOAD IMAGE"
+                android:text="Đăng ảnh"
                 android:textSize="32px" />
 
             <TextView
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
                 android:layout_marginTop="50px"
-                android:text="Description:"
+                android:text="Mô tả:"
                 android:textSize="32px" />
 
             <EditText
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20px"
                 android:layout_marginTop="100px"
-                android:text="ADD PRODUCT"
+                android:text="Thêm sản phẩm"
                 android:textSize="32px" />
 
         </LinearLayout>
