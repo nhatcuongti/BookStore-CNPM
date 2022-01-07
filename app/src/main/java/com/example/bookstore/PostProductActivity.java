@@ -74,6 +74,7 @@ public class PostProductActivity extends AppCompatActivity {
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(PostProductActivity.this, "Xảy ra lỗi. Xin vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
                                     Log.w(TAG, "Error adding document", e);
                                 }
                             });
