@@ -296,7 +296,8 @@ public class ProductModel implements Serializable {
                                 if (document.getId().equals(userID)){
 //                                    String[] cartRaw = (String[]) document.get("cart");
                                     ArrayList<String> cart = (ArrayList<String>) document.get("cart");
-
+//                                    if (cart != null)
+//                                        cart = new ArrayList<>();
 
                                     int count = 0;
                                     for (String productIdCart : cart){
